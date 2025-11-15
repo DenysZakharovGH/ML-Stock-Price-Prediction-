@@ -53,18 +53,17 @@ Minimalistic, readable, and designed for real-world experimentation.
 ## 🧠 Model Architecture
 
 ```python
-model = tf.keras.Sequential([
-    tf.keras.layers.LSTM(64, return_sequences=True, input_shape=(seq_len, 1)),
-    tf.keras.layers.LSTM(32),
-    tf.keras.layers.Dense(16, activation='relu'),
-    tf.keras.layers.Dense(pred_len)
+model = models.Sequential([
+    layers.Input(shape=(seq_len, 1)),
+    layers.LSTM(64 * 2, return_sequences=False),
+    layers.Dense(64, activation='relu'),
+    layers.Dense(32, activation='relu'),
+    layers.Dense(pred_len)  # прогноз — одне значення
 ])
 ```
 
 ## 🧑‍💻 Author
 
 **Denys**  
-Passionate about AI and computer vision.
-Reach me at: [denys.zakharov.work@gmail.com]  
-
+Passionate about AI and computer vision. Reach me at: [denys.zakharov.work@gmail.com]  
 ---
